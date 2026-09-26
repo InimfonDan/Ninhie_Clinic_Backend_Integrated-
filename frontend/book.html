@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Book Appointment — Ninhie Clinic</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body data-page="book">
+    <div class="mobile-topbar" id="mobileTopbar"></div>
+
+    <div class="app">
+      <aside class="sidebar" id="sidebar"></aside>
+
+      <main class="content">
+        <div class="page-head">
+          <div>
+            <span class="eyebrow">Book</span>
+            <h1>Book an appointment</h1>
+            <p class="sub">
+              Choose department(s) and a time that works. Your booking starts as
+              Pending until it's approved.
+            </p>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="banner" id="bookBanner"></div>
+          <form id="bookForm" novalidate>
+            <div class="grid">
+              <div class="field" id="f-dept">
+                <label for="b-dept">Department *</label>
+                <select id="b-dept">
+                  <option value="">Select…</option>
+                </select>
+                <span class="error-msg">Select a department.</span>
+              </div>
+              <div class="field" id="f-doctor">
+                <label for="b-doctor">Doctor *</label>
+                <select id="b-doctor">
+                  <option value="">Select department first…</option>
+                </select>
+                <span class="error-msg">Select a doctor.</span>
+              </div>
+              <div class="field" id="f-date">
+                <label for="b-date">Date *</label>
+                <input type="date" id="b-date" />
+                <span class="error-msg"
+                  >Choose a date from today onward, on a weekday.</span
+                >
+              </div>
+              <div class="field" id="f-time">
+                <label for="b-time">Time *</label>
+                <select id="b-time">
+                  <option value="">Select…</option>
+                </select>
+                <span class="error-msg">Choose a time slot.</span>
+              </div>
+              <div class="field full" id="f-reason">
+                <label for="b-reason">Reason for visit</label>
+                <textarea
+                  id="b-reason"
+                  placeholder="Briefly describe the reason for this appointment (optional)"
+                ></textarea>
+              </div>
+            </div>
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary">
+                Confirm appointment
+              </button>
+              <button type="reset" class="btn btn-ghost">Clear form</button>
+            </div>
+          </form>
+        </div>
+      </main>
+    </div>
+
+    <div class="mobile-tabbar" id="mobileTabbar"></div>
+
+    <script src="js/common.js"></script>
+    <script src="js/book.js"></script>
+  </body>
+</html>

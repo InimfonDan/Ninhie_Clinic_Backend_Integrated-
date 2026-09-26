@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Patient Directory — Ninhie Clinic</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body data-page="directory">
+    <div class="mobile-topbar" id="mobileTopbar"></div>
+
+    <div class="app">
+      <aside class="sidebar" id="sidebar"></aside>
+
+      <main class="content">
+        <div class="page-head">
+          <div>
+            <span class="eyebrow">Admin</span>
+            <h1>Patient directory</h1>
+            <p class="sub">
+              Every registered patient, searchable by name, phone or patient ID.
+            </p>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="search-bar">
+            <input
+              type="text"
+              id="directorySearch"
+              placeholder="Search by name, phone or patient ID…"
+            />
+          </div>
+          <div style="overflow-x: auto">
+            <table>
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Name</th>
+                  <th>Gender</th>
+                  <th>DOB</th>
+                  <th>Blood group</th>
+                  <th>Phone</th>
+                  <th>Email</th>
+                  <th>Appointments</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody id="directoryTableBody"></tbody>
+            </table>
+          </div>
+          <div class="empty-state" id="directoryEmpty" style="display: none">
+            <span class="glyph">🧾</span>
+            No patients registered yet.
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <div class="mobile-tabbar" id="mobileTabbar"></div>
+
+    <script src="js/common.js"></script>
+    <script src="js/directory.js"></script>
+  </body>
+</html>

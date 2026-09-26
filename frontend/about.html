@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About — Ninhie Clinic</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body data-page="about">
+    <div class="mobile-topbar" id="mobileTopbar"></div>
+
+    <div class="app">
+      <aside class="sidebar" id="sidebar"></aside>
+      <main class="content">
+        <div class="page-head">
+          <div>
+            <span class="eyebrow">About</span>
+            <h1>About Ninhie Clinic</h1>
+            <p class="sub">
+              A little on how the clinic desk works, and what happens to your
+              booking after you submit it.
+            </p>
+          </div>
+        </div>
+
+        <div class="panel">
+          <h2>How booking works here</h2>
+          <p class="panel-sub">
+            Three simple steps, from account to confirmed visit.
+          </p>
+          <div class="feature-row">
+            <div class="feature-card">
+              <div class="num"></div>
+              <h3>Register once</h3>
+              <p>
+                Create a patient profile with your basic details. You'll use
+                your phone number or email to log back in next time.
+              </p>
+            </div>
+            <div class="feature-card">
+              <div class="num"></div>
+              <h3>Request a slot</h3>
+              <p>
+                Pick a department, a doctor, and an open time slot. The system
+                blocks double-bookings on the same doctor automatically.
+              </p>
+            </div>
+            <div class="feature-card">
+              <div class="num"></div>
+              <h3>Wait for approval</h3>
+              <p>
+                Every request starts as <strong>Pending</strong>. Our front desk
+                reviews it and marks it <strong>Approved</strong> or
+                <strong>Cancelled</strong> — you'll see the update the next time
+                you check your dashboard.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <h2>Departments</h2>
+          <p class="panel-sub">
+            Doctors are organized into departments by the clinic desk, and new
+            departments can be created at any time.
+          </p>
+          <div id="aboutDeptList"></div>
+        </div>
+      </main>
+    </div>
+
+    <div class="mobile-tabbar" id="mobileTabbar"></div>
+
+    <script src="js/common.js"></script>
+    <script src="js/about.js"></script>
+  </body>
+</html>

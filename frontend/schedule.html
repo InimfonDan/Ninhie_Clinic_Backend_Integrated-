@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Schedule — Ninhie Clinic</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body data-page="schedule">
+    <div class="mobile-topbar" id="mobileTopbar"></div>
+
+    <div class="app">
+      <aside class="sidebar" id="sidebar"></aside>
+
+      <main class="content">
+        <div class="page-head">
+          <div>
+            <span class="eyebrow" id="scheduleEyebrow">Schedule</span>
+            <h1 id="scheduleTitle">Appointment schedule</h1>
+            <p class="sub" id="scheduleSub">
+              Every booking on file, searchable by patient, doctor or
+              department.
+            </p>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="search-bar">
+            <input
+              type="text"
+              id="scheduleSearch"
+              placeholder="Search by patient, doctor, department or date…"
+            />
+            <select id="scheduleFilter">
+              <option value="all">All statuses</option>
+              <option value="pending">Pending</option>
+              <option value="approved">Approved</option>
+              <option value="cancelled">Cancelled</option>
+            </select>
+          </div>
+          <div style="overflow-x: auto">
+            <table>
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Patient</th>
+                  <th>Department</th>
+                  <th>Doctor</th>
+                  <th>Reason</th>
+                  <th>Date &amp; time</th>
+                  <th>Status</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody id="scheduleTableBody"></tbody>
+            </table>
+          </div>
+          <div class="empty-state" id="scheduleEmpty" style="display: none">
+            <span class="glyph">🗓️</span>
+            No appointments match that search yet.
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <div class="mobile-tabbar" id="mobileTabbar"></div>
+
+    <script src="js/common.js"></script>
+    <script src="js/schedule.js"></script>
+  </body>
+</html>

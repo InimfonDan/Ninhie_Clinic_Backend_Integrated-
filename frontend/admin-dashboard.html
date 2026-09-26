@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Dashboard — Ninhie Clinic</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body data-page="admin-dashboard">
+    <div class="mobile-topbar" id="mobileTopbar"></div>
+
+    <div class="app">
+      <aside class="sidebar" id="sidebar"></aside>
+
+      <main class="content">
+        <div class="page-head">
+          <div>
+            <span class="eyebrow">Admin</span>
+            <h1>Admin dashboard</h1>
+            <p class="sub">
+              See how many people have booked, and manage the doctor roster.
+            </p>
+          </div>
+          <a class="btn btn-primary" href="schedule.html"
+            >Review appointments</a
+          >
+        </div>
+
+        <div class="stat-row" id="statRow"></div>
+
+        <div class="panel">
+          <h2>Quick actions</h2>
+          <div class="form-actions">
+            <a class="btn btn-ghost" href="schedule.html"
+              >Approve / cancel appointments</a
+            >
+            <a class="btn btn-ghost" href="directory.html">Patient directory</a>
+          </div>
+        </div>
+
+        <div class="panel">
+          <h2>Manage doctors</h2>
+          <p class="panel-sub">
+            Add a doctor to an existing department, or type a new department to
+            create one.
+          </p>
+          <div class="banner" id="doctorBanner"></div>
+          <form id="doctorForm" novalidate>
+            <div class="grid">
+              <div class="field" id="f-doctor-name">
+                <label for="new-doctor-name">Doctor name *</label>
+                <input
+                  type="text"
+                  id="new-doctor-name"
+                  placeholder="e.g. Dr. Wale Adisa"
+                />
+                <span class="error-msg">Enter the doctor's full name.</span>
+              </div>
+              <div class="field" id="f-doctor-dept">
+                <label for="new-doctor-dept">Department *</label>
+                <input
+                  type="text"
+                  id="new-doctor-dept"
+                  list="deptSuggestions"
+                  placeholder="e.g. Cardiology, or a new department"
+                />
+                <datalist id="deptSuggestions"></datalist>
+                <span class="error-msg">Enter a department name.</span>
+              </div>
+            </div>
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary">Add doctor</button>
+            </div>
+          </form>
+
+          <div style="margin-top: 20px" id="doctorList"></div>
+        </div>
+      </main>
+    </div>
+
+    <div class="mobile-tabbar" id="mobileTabbar"></div>
+
+    <script src="js/common.js"></script>
+    <script src="js/admin-dashboard.js"></script>
+  </body>
+</html>

@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cancel Appointment — Ninhie Clinic</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body data-page="cancel">
+    <div class="mobile-topbar" id="mobileTopbar"></div>
+
+    <div class="app">
+      <aside class="sidebar" id="sidebar"></aside>
+
+      <main class="content">
+        <div class="page-head">
+          <div>
+            <span class="eyebrow">Cancel</span>
+            <h1>Cancel an appointment</h1>
+            <p class="sub">
+              Find your appointment by doctor or ID, then cancel it.
+            </p>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="banner" id="cancelBanner"></div>
+          <div class="search-bar">
+            <input
+              type="text"
+              id="cancelSearch"
+              placeholder="Search your appointments by doctor, department or ID…"
+            />
+          </div>
+          <div class="ticket-list" id="cancelTicketList"></div>
+          <div class="empty-state" id="cancelEmpty" style="display: none">
+            <span class="glyph">✅</span>
+            Nothing to cancel right now.
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <div class="mobile-tabbar" id="mobileTabbar"></div>
+
+    <script src="js/common.js"></script>
+    <script src="js/cancel.js"></script>
+  </body>
+</html>

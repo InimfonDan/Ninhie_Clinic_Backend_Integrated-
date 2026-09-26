@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Dashboard — Ninhie Clinic</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="patient-dashboard">
+
+<div class="mobile-topbar" id="mobileTopbar"></div>
+
+<div class="app">
+  <aside class="sidebar" id="sidebar"></aside>
+
+  <main class="content">
+    <div class="page-head">
+      <div>
+        <span class="eyebrow" id="welcomeEyebrow">My Dashboard</span>
+        <h1>Welcome back</h1>
+        <p class="sub">Here's where things stand with your appointments.</p>
+      </div>
+      <a class="btn btn-primary" href="book.html">+ New appointment</a>
+    </div>
+
+    <div class="stat-row" id="statRow"></div>
+
+    <div class="panel">
+      <h2>Next up</h2>
+      <p class="panel-sub">Your soonest pending or approved appointments.</p>
+      <div id="upcomingTicketList" class="ticket-list"></div>
+    </div>
+
+    <div class="panel">
+      <h2>Quick actions</h2>
+      <div class="form-actions">
+        <a class="btn btn-ghost" href="book.html">Book appointment</a>
+        <a class="btn btn-ghost" href="schedule.html">View my schedule</a>
+        <a class="btn btn-ghost" href="cancel.html">Cancel appointment</a>
+      </div>
+    </div>
+  </main>
+</div>
+
+<div class="mobile-tabbar" id="mobileTabbar"></div>
+
+<script src="js/common.js"></script>
+<script src="js/patient-dashboard.js"></script>
+</body>
+</html>
