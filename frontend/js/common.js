@@ -90,7 +90,7 @@ async function apiRequest(path, options = {}) {
     // fetch() itself throws when it can't reach the server at all
     // (server not running, wrong port, no internet, etc.)
     throw new Error(
-      "Could not reach the server. Make sure your backend is running (npm start) on http://localhost:5000.",
+      "Could not reach the server. Make sure your backend is running.",
     );
   }
 
