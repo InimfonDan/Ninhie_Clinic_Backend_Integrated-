@@ -14,7 +14,7 @@
 /* ---------------- API configuration ---------------- */
 
 // Change this if your backend runs on a different port or host.
-const API_BASE = "http://localhost:5000/api";
+const API_BASE = "https://ninhie-clinic-backend.vercel.app/";
 
 const SESSION_KEY = "ninhie_session";
 
@@ -71,7 +71,10 @@ function requireAnyRole() {
    "handle errors sensibly" logic only has to be written once. */
 async function apiRequest(path, options = {}) {
   const session = getSession();
-  const headers = { "Content-Type": "application/json", ...(options.headers || {}) };
+  const headers = {
+    "Content-Type": "application/json",
+    ...(options.headers || {}),
+  };
 
   // If we're logged in, attach the token so the server knows who's asking.
   // This is the "Authorization: Bearer <token>" header the auth middleware
@@ -87,7 +90,7 @@ async function apiRequest(path, options = {}) {
     // fetch() itself throws when it can't reach the server at all
     // (server not running, wrong port, no internet, etc.)
     throw new Error(
-      "Could not reach the server. Make sure your backend is running (npm start) on http://localhost:5000."
+      "Could not reach the server. Make sure your backend is running (npm start) on http://localhost:5000.",
     );
   }
 
@@ -103,7 +106,9 @@ async function apiRequest(path, options = {}) {
   if (response.status === 401) {
     clearSession();
     window.location.href = "register.html";
-    throw new Error(data.message || "Your session has expired. Please log in again.");
+    throw new Error(
+      data.message || "Your session has expired. Please log in again.",
+    );
   }
 
   if (!response.ok) {
@@ -119,7 +124,10 @@ async function fetchDoctors() {
   return res.data;
 }
 async function addDoctor(payload) {
-  return apiRequest("/doctors", { method: "POST", body: JSON.stringify(payload) });
+  return apiRequest("/doctors", {
+    method: "POST",
+    body: JSON.stringify(payload),
+  });
 }
 async function removeDoctor(id) {
   return apiRequest("/doctors/" + id, { method: "DELETE" });
@@ -146,7 +154,10 @@ async function fetchAppointments() {
   return res.data;
 }
 async function createAppointment(payload) {
-  return apiRequest("/appointments", { method: "POST", body: JSON.stringify(payload) });
+  return apiRequest("/appointments", {
+    method: "POST",
+    body: JSON.stringify(payload),
+  });
 }
 async function cancelAppointment(id) {
   return apiRequest(`/appointments/${id}/cancel`, { method: "PATCH" });
@@ -157,19 +168,39 @@ async function approveAppointment(id) {
 
 /* ---------------- Auth ---------------- */
 async function registerPatient(payload) {
-  return apiRequest("/auth/register", { method: "POST", body: JSON.stringify(payload) });
+  return apiRequest("/auth/register", {
+    method: "POST",
+    body: JSON.stringify(payload),
+  });
 }
 async function loginPatient(payload) {
-  return apiRequest("/auth/login", { method: "POST", body: JSON.stringify(payload) });
+  return apiRequest("/auth/login", {
+    method: "POST",
+    body: JSON.stringify(payload),
+  });
 }
 async function adminLogin(payload) {
-  return apiRequest("/auth/admin-login", { method: "POST", body: JSON.stringify(payload) });
+  return apiRequest("/auth/admin-login", {
+    method: "POST",
+    body: JSON.stringify(payload),
+  });
 }
 
 /* ---------------- Reference data ---------------- */
 const TIME_SLOTS = [
-  "09:00", "09:30", "10:00", "10:30", "11:00", "11:30",
-  "13:00", "13:30", "14:00", "14:30", "15:00", "15:30", "16:00",
+  "09:00",
+  "09:30",
+  "10:00",
+  "10:30",
+  "11:00",
+  "11:30",
+  "13:00",
+  "13:30",
+  "14:00",
+  "14:30",
+  "15:00",
+  "15:30",
+  "16:00",
 ];
 
 /* ---------------- Validation helpers ---------------- */
@@ -276,18 +307,46 @@ function navItems(session) {
   ];
 
   if (session && session.role === "patient") {
-    items.push({ key: "patient-dashboard", label: "My Dashboard", href: "patient-dashboard.html" });
+    items.push({
+      key: "patient-dashboard",
+      label: "My Dashboard",
+      href: "patient-dashboard.html",
+    });
     items.push({ key: "book", label: "Book Appointment", href: "book.html" });
-    items.push({ key: "schedule", label: "My Schedule", href: "schedule.html" });
-    items.push({ key: "cancel", label: "Cancel Appointment", href: "cancel.html" });
+    items.push({
+      key: "schedule",
+      label: "My Schedule",
+      href: "schedule.html",
+    });
+    items.push({
+      key: "cancel",
+      label: "Cancel Appointment",
+      href: "cancel.html",
+    });
   }
   if (session && session.role === "admin") {
-    items.push({ key: "admin-dashboard", label: "Admin Dashboard", href: "admin-dashboard.html" });
-    items.push({ key: "schedule", label: "All Appointments", href: "schedule.html" });
-    items.push({ key: "directory", label: "Patient Directory", href: "directory.html" });
+    items.push({
+      key: "admin-dashboard",
+      label: "Admin Dashboard",
+      href: "admin-dashboard.html",
+    });
+    items.push({
+      key: "schedule",
+      label: "All Appointments",
+      href: "schedule.html",
+    });
+    items.push({
+      key: "directory",
+      label: "Patient Directory",
+      href: "directory.html",
+    });
   }
   if (!session) {
-    items.push({ key: "register", label: "Register / Login", href: "register.html" });
+    items.push({
+      key: "register",
+      label: "Register / Login",
+      href: "register.html",
+    });
   }
   return items;
 }
@@ -298,14 +357,18 @@ function renderChrome() {
   const items = navItems(session);
 
   const navHTML = items
-    .map((i) => `<a class="nav-btn${i.key === page ? " active" : ""}" href="${i.href}">${i.label}</a>`)
+    .map(
+      (i) =>
+        `<a class="nav-btn${i.key === page ? " active" : ""}" href="${i.href}">${i.label}</a>`,
+    )
     .join("");
 
   const sidebar = document.getElementById("sidebar");
   if (sidebar) {
     let sessionBoxHTML = "";
     if (session) {
-      const label = session.role === "admin" ? "Admin" : session.patientName || "Patient";
+      const label =
+        session.role === "admin" ? "Admin" : session.patientName || "Patient";
       sessionBoxHTML = `
         <div class="session-box">
           <div class="who">${label}</div>
@@ -338,13 +401,15 @@ function renderChrome() {
   if (tabbar) {
     let tabItems = items.slice();
     if (session) {
-      tabItems = tabItems.concat([{ key: "logout", label: "Logout", href: "#", logout: true }]);
+      tabItems = tabItems.concat([
+        { key: "logout", label: "Logout", href: "#", logout: true },
+      ]);
     }
     tabbar.innerHTML = tabItems
       .map((i) =>
         i.logout
           ? `<button class="tab-btn" id="tabLogoutBtn"><span class="tab-dot"></span>Logout</button>`
-          : `<a class="tab-btn${i.key === page ? " active" : ""}" href="${i.href}"><span class="tab-dot"></span>${i.label.split(" ")[0]}</a>`
+          : `<a class="tab-btn${i.key === page ? " active" : ""}" href="${i.href}"><span class="tab-dot"></span>${i.label.split(" ")[0]}</a>`,
       )
       .join("");
   }
