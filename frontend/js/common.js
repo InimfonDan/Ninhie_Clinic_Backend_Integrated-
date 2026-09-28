@@ -14,7 +14,7 @@
 /* ---------------- API configuration ---------------- */
 
 // Change this if your backend runs on a different port or host.
-const API_BASE = "https://ninhie-clinic-backend.vercel.app/";
+const API_BASE = "https://ninhie-clinic-backend.vercel.app/api";
 
 const SESSION_KEY = "ninhie_session";
 
