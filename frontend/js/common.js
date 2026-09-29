@@ -316,7 +316,7 @@ function navItems(session) {
     items.push({ key: "book", label: "Book Appointment", href: "book.html" });
     items.push({
       key: "schedule",
-      label: "My Schedule",
+      label: "Schedule",
       href: "schedule.html",
     });
     items.push({
