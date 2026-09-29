@@ -47,7 +47,8 @@ function logout() {
 function requireRole(role) {
   const session = getSession();
   if (!session || session.role !== role) {
-    window.location.href = "register.html";
+    window.location.href =
+      role === "admin" ? "register.html#admin-login" : "register.html";
     return null;
   }
   return session;
