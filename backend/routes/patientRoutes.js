@@ -5,8 +5,6 @@ import { verifyToken, requireAdmin } from "../middleware/auth.js";
 
 const router = express.Router();
 
-// @route   GET /api/patients
-// @desc    List every registered patient, for the Patient Directory page.
 //          ADMIN ONLY — this is personal data, patients should never be
 //          able to fetch each other's records.
 router.get("/", verifyToken, requireAdmin, async (req, res) => {
@@ -25,7 +23,9 @@ router.get("/", verifyToken, requireAdmin, async (req, res) => {
 
     res.status(200).json({ success: true, count: data.length, data });
   } catch (error) {
-    res.status(500).json({ success: false, message: "Server error", error: error.message });
+    res
+      .status(500)
+      .json({ success: false, message: "Server error", error: error.message });
   }
 });
 

@@ -14,7 +14,8 @@
 /* ---------------- API configuration ---------------- */
 
 // Change this if your backend runs on a different port or host.
-const API_BASE = "https://ninhie-clinic-backend.vercel.app/api";
+// const API_BASE = "https://ninhie-clinic-backend.vercel.app/api";
+const API_BASE = "http://localhost:5000/api";
 
 const SESSION_KEY = "ninhie_session";
 
@@ -72,41 +73,42 @@ function requireAnyRole() {
    "handle errors sensibly" logic only has to be written once. */
 async function apiRequest(path, options = {}) {
   const session = getSession();
+
   const headers = {
     "Content-Type": "application/json",
     ...(options.headers || {}),
   };
 
-  // If we're logged in, attach the token so the server knows who's asking.
-  // This is the "Authorization: Bearer <token>" header the auth middleware
-  // in backend/middleware/auth.js reads.
+  // If we're logged in, attach the token
   if (session && session.token) {
     headers.Authorization = "Bearer " + session.token;
   }
 
   let response;
+
   try {
-    response = await fetch(API_BASE + path, { ...options, headers });
+    response = await fetch(API_BASE + path, {
+      ...options,
+      headers,
+    });
   } catch (networkError) {
-    // fetch() itself throws when it can't reach the server at all
-    // (server not running, wrong port, no internet, etc.)
     throw new Error(
       "Could not reach the server. Make sure your backend is running.",
     );
   }
 
   let data = {};
+
   try {
     data = await response.json();
   } catch (e) {
-    // Response wasn't JSON — leave data as {} and fall through.
+    // Response wasn't JSON
   }
 
-  // 401 means our session is invalid or expired — send the user back to
-  // log in rather than showing a confusing error.
   if (response.status === 401) {
     clearSession();
     window.location.href = "register.html";
+
     throw new Error(
       data.message || "Your session has expired. Please log in again.",
     );
@@ -174,19 +176,12 @@ async function registerPatient(payload) {
     body: JSON.stringify(payload),
   });
 }
-async function loginPatient(payload) {
+async function login(payload) {
   return apiRequest("/auth/login", {
     method: "POST",
     body: JSON.stringify(payload),
   });
 }
-async function adminLogin(payload) {
-  return apiRequest("/auth/admin-login", {
-    method: "POST",
-    body: JSON.stringify(payload),
-  });
-}
-
 /* ---------------- Reference data ---------------- */
 const TIME_SLOTS = [
   "09:00",

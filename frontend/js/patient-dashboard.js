@@ -41,7 +41,8 @@
   }
 
   document.addEventListener("DOMContentLoaded", function () {
-    document.getElementById("welcomeEyebrow").textContent = `Welcome, ${session.patientName}`;
+    document.getElementById("welcomeEyebrow").textContent =
+      `Welcome, ${session.patientName}`;
     renderDashboard();
   });
 })();

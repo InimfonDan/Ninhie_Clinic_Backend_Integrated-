@@ -56,7 +56,7 @@ mongoose
     console.log("MongoDB connected successfully");
     app.listen(PORT, () => {
       console.log(
-        `Server running in ${process.env.NODE_ENV || "development"} mode on http://localhost:${PORT}`
+        `Server running in ${process.env.NODE_ENV || "development"} mode on http://localhost:${PORT}`,
       );
     });
   })

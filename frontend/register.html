@@ -3,213 +3,301 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>Register or Log In — Ninhie Clinic</title>
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
+
     <link
       href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap"
       rel="stylesheet"
     />
+
     <link rel="stylesheet" href="css/styles.css" />
   </head>
+
   <body data-page="register">
+    <!-- Mobile top bar -->
     <div class="mobile-topbar" id="mobileTopbar"></div>
 
     <div class="app">
+      <!-- Sidebar -->
       <aside class="sidebar" id="sidebar"></aside>
 
+      <!-- Main content -->
       <main class="content">
+        <!-- Page heading -->
         <div class="page-head">
           <div>
             <span class="eyebrow">Get started</span>
+
             <h1>Register or log in</h1>
+
             <p class="sub">
-              New patients, register below. Returning patients can log in.
+              New patients, register below. Returning patients and staff can log
+              in.
             </p>
           </div>
         </div>
 
+        <!-- Authentication panel -->
         <div class="panel">
+          <!-- Register / Login tabs -->
           <div class="auth-tabs" id="authTabs">
-            <button class="auth-tab-btn active" data-tab="register">
+            <button
+              type="button"
+              class="auth-tab-btn active"
+              data-tab="register"
+            >
               Register
             </button>
-            <button class="auth-tab-btn" data-tab="patientLogin">
-              Patient Login
+
+            <button type="button" class="auth-tab-btn" data-tab="login">
+              Login
             </button>
           </div>
 
-          <!-- ============ REGISTER ============ -->
+          <!-- =====================================================
+               REGISTER
+               ===================================================== -->
+
           <div class="auth-panel active" id="panel-register">
             <div class="banner" id="registerBanner"></div>
+
             <form id="registerForm" novalidate>
               <div class="grid">
+                <!-- Full name -->
                 <div class="field full" id="f-name">
                   <label for="p-name">Full name *</label>
-                  <input
-                    type="text"
-                    id="p-name"
-                    placeholder="e.g. Amara Okafor"
-                  />
-                  <span class="error-msg"
-                    >Enter the patient's full name (at least 3
-                    characters).</span
-                  >
+
+                  <input type="text" id="p-name" placeholder="Full name" />
+
+                  <span class="error-msg">
+                    Enter the patient's full name (at least 3 characters).
+                  </span>
                 </div>
+
+                <!-- Date of birth -->
                 <div class="field" id="f-dob">
                   <label for="p-dob">Date of birth *</label>
+
                   <input type="date" id="p-dob" />
-                  <span class="error-msg"
-                    >Enter a valid date of birth in the past.</span
-                  >
+
+                  <span class="error-msg">
+                    Enter a valid date of birth in the past.
+                  </span>
                 </div>
+
+                <!-- Gender -->
                 <div class="field" id="f-gender">
                   <label for="p-gender">Gender *</label>
+
                   <select id="p-gender">
                     <option value="">Select…</option>
-                    <option>Female</option>
-                    <option>Male</option>
+
+                    <option value="Female">Female</option>
+
+                    <option value="Male">Male</option>
                   </select>
-                  <span class="error-msg">Please select a gender option.</span>
+
+                  <span class="error-msg">
+                    Please select a gender option.
+                  </span>
                 </div>
+
+                <!-- Phone -->
                 <div class="field" id="f-phone">
                   <label for="p-phone">Phone number *</label>
+
                   <input
                     type="tel"
                     id="p-phone"
                     placeholder="e.g. 0803 123 4567"
                   />
-                  <span class="error-msg"
-                    >Enter a valid phone number (7–15 digits). This doubles as
-                    your login.</span
-                  >
+
+                  <span class="error-msg">
+                    Enter a valid phone number (7–15 digits). This doubles as
+                    your login.
+                  </span>
                 </div>
+
+                <!-- Email -->
                 <div class="field" id="f-email">
                   <label for="p-email">Email address *</label>
+
                   <input
                     type="email"
                     id="p-email"
                     placeholder="name@gmail.com"
                   />
-                  <span class="error-msg">Enter a valid email address.</span>
+
+                  <span class="error-msg"> Enter a valid email address. </span>
                 </div>
+
+                <!-- Address -->
                 <div class="field full" id="f-address">
                   <label for="p-address">Home address *</label>
+
                   <input
                     type="text"
                     id="p-address"
                     placeholder="Street, city, state"
                   />
-                  <span class="error-msg"
-                    >Enter an address (at least 5 characters).</span
-                  >
+
+                  <span class="error-msg">
+                    Enter an address (at least 5 characters).
+                  </span>
                 </div>
+
+                <!-- Blood group -->
                 <div class="field" id="f-blood">
                   <label for="p-blood">Blood group</label>
+
                   <select id="p-blood">
                     <option value="">Unknown</option>
-                    <option>O+</option>
-                    <option>O-</option>
-                    <option>A+</option>
-                    <option>A-</option>
-                    <option>B+</option>
-                    <option>B-</option>
-                    <option>AB+</option>
-                    <option>AB-</option>
+
+                    <option value="O+">O+</option>
+                    <option value="O-">O-</option>
+
+                    <option value="A+">A+</option>
+                    <option value="A-">A-</option>
+
+                    <option value="B+">B+</option>
+                    <option value="B-">B-</option>
+
+                    <option value="AB+">AB+</option>
+                    <option value="AB-">AB-</option>
                   </select>
                 </div>
+
+                <!-- Emergency contact -->
                 <div class="field" id="f-contact">
-                  <label for="p-emergency">Emergency contact</label>
+                  <label for="p-emergency"> Emergency contact </label>
+
                   <input
                     type="tel"
                     id="p-emergency"
                     placeholder="Next of kin phone number"
                   />
                 </div>
+
+                <!-- Password -->
                 <div class="field" id="f-password">
-                  <label for="p-password">Password *</label>
-                  <input
-                    type="password"
-                    id="p-password"
-                    placeholder="Enter password"
-                  />
-                  <span class="error-msg"
-                    >Password must contain atleast 1 upper case, lower case and
-                    symbol</span
-                  >
+                  <label for="p-password"> Password * </label>
+
+                  <div class="password-wrap">
+                    <input
+                      type="password"
+                      id="p-password"
+                      placeholder="Enter password"
+                      autocomplete="new-password"
+                    />
+
+                    <button
+                      type="button"
+                      class="toggle-password"
+                      data-target="p-password"
+                      aria-label="Show password"
+                    >
+                      <span class="eye-icon"></span>
+                    </button>
+                  </div>
+
+                  <span class="error-msg">
+                    Password must contain at least 1 uppercase, lowercase and
+                    symbol
+                  </span>
                 </div>
+
+                <!-- Confirm password -->
                 <div class="field" id="f-password2">
-                  <label for="p-password2">Confirm password *</label>
-                  <input
-                    type="password"
-                    id="p-password2"
-                    placeholder="Re-enter password"
-                  />
-                  <span class="error-msg">Passwords don't match.</span>
+                  <label for="p-password2"> Confirm password * </label>
+
+                  <div class="password-wrap">
+                    <input
+                      type="password"
+                      id="p-password2"
+                      placeholder="Re-enter password"
+                      autocomplete="new-password"
+                    />
+
+                    <button
+                      type="button"
+                      class="toggle-password"
+                      data-target="p-password2"
+                      aria-label="Show password"
+                    >
+                      <span class="eye-icon"></span>
+                    </button>
+                  </div>
+
+                  <span class="error-msg"> Passwords must match. </span>
                 </div>
               </div>
+
+              <!-- Register buttons -->
               <div class="form-actions">
                 <button type="submit" class="btn btn-primary">
                   Create account
                 </button>
+
                 <button type="reset" class="btn btn-ghost">Clear form</button>
               </div>
             </form>
           </div>
 
-          <!-- ============ PATIENT LOGIN ============ -->
-          <div class="auth-panel" id="panel-patientLogin">
-            <div class="banner" id="patientLoginBanner"></div>
-            <form id="patientLoginForm" novalidate>
+          <!-- =====================================================
+               LOGIN
+               ===================================================== -->
+
+          <div class="auth-panel" id="panel-login">
+            <div class="banner" id="loginBanner"></div>
+
+            <form id="loginForm" novalidate>
+              <!-- Login ID -->
               <div class="field full" id="f-login-id">
-                <label for="login-id">Phone number or email *</label>
+                <label for="login-id"> Phone, email or username * </label>
+
                 <input
                   type="text"
                   id="login-id"
-                  placeholder="Phone or email used at registration"
+                  placeholder="Phone, email or username"
+                  autocomplete="username"
                 />
-                <span class="error-msg"
-                  >Enter the phone number or email you registered with.</span
-                >
+
+                <span class="error-msg">
+                  Enter your phone number, email or username.
+                </span>
               </div>
+
+              <!-- Login password -->
               <div class="field full" id="f-login-password">
-                <label for="login-password">Password *</label>
-                <input
-                  type="password"
-                  id="login-password"
-                  placeholder="Your password"
-                />
-                <span class="error-msg">Enter your password.</span>
+                <label for="login-password"> Password * </label>
+
+                <div class="password-wrap">
+                  <input
+                    type="password"
+                    id="login-password"
+                    placeholder="Your password"
+                    autocomplete="current-password"
+                  />
+
+                  <button
+                    type="button"
+                    class="toggle-password"
+                    data-target="login-password"
+                    aria-label="Show password"
+                  >
+                    <span class="eye-icon"></span>
+                  </button>
+                </div>
+
+                <span class="error-msg"> Enter your password. </span>
               </div>
+
+              <!-- Login button -->
               <div class="form-actions">
                 <button type="submit" class="btn btn-primary">Log in</button>
-              </div>
-            </form>
-          </div>
-
-          <div class="auth-panel" id="panel-adminLogin">
-            <a href="#" class="link-btn back-link" id="adminBackLink">
-              ← Back to patient login
-            </a>
-            <div class="banner" id="adminLoginBanner"></div>
-            <form id="adminLoginForm" novalidate>
-              <div class="field full" id="f-admin-username">
-                <label for="admin-username">Admin username *</label>
-                <input type="text" id="admin-username" placeholder="admin" />
-                <span class="error-msg">Enter the admin username.</span>
-              </div>
-              <div class="field full" id="f-admin-password">
-                <label for="admin-password">Admin password *</label>
-                <input
-                  type="password"
-                  id="admin-password"
-                  placeholder="Password"
-                />
-                <span class="error-msg">Enter the admin password.</span>
-              </div>
-              <div class="form-actions">
-                <button type="submit" class="btn btn-primary">
-                  Log in as admin
-                </button>
               </div>
             </form>
           </div>
@@ -217,9 +305,12 @@
       </main>
     </div>
 
+    <!-- Mobile bottom navigation -->
     <div class="mobile-tabbar" id="mobileTabbar"></div>
 
+    <!-- JavaScript -->
     <script src="js/common.js"></script>
+
     <script src="js/register.js"></script>
   </body>
 </html>
